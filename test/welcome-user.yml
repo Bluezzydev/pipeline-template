@@ -1,0 +1,17 @@
+name: welcome user
+description: This workflow will welcome the user when they push to the main branch.
+inputs:
+  user_name:
+    description: 'The name of the user to welcome'
+    required: true
+    default: 'world'
+outputs:
+  welcome_message:
+    description: 'The welcome message for the user'
+    value: ${{ steps.welcome.outputs.message }}
+runs:
+  using: "composite"
+  steps:
+    - name: Welcome the user
+      id: welcome
+      run: echo "Hello ${{ inputs.user_name }}! Welcome to the GitHub Actions learning journey."
