@@ -5,6 +5,10 @@ inputs:
     description: 'The name of the user to welcome'
     required: true
     default: 'world'
+  age:
+    description: 'The age of the user'
+    required: false
+    default: 'unknown'
 outputs:
   welcome_message:
     description: 'The welcome message for the user'
@@ -15,4 +19,4 @@ runs:
     - name: Welcome the user
       id: welcome
       shell: bash
-      run: echo "Hello ${{ inputs.user_name }}! Welcome to the GitHub Actions learning journey."
+      run: echo "Hello ${{ inputs.user_name }}! You are ${{ inputs.age }} years old. Welcome to the GitHub Actions learning journey."
